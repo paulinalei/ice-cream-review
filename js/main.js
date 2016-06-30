@@ -32,8 +32,14 @@ function initialize() {
     var infowindow = new google.maps.InfoWindow({
       content: locations[index].name
     });
+    var clickedWindows = [];
     google.maps.event.addListener(marker, 'click', function() {
+
       infowindow.open(map, marker);
+
+      var personalReviews = ["UCLA boelter", "sweet sweet"]
+      var writing = document.getElementById("reviews");
+      writing.innerHTML = personalReviews[index];
     })
   }
 
@@ -45,12 +51,3 @@ function initialize() {
 
 // Loading the map
 google.maps.event.addDomListener(window, 'load', initialize);
-
-// Object to load personal reviews on the side
-var iceCream = {
-    reviewIceCream: function() {
-      var personalReviews = ["it was lit fam", "lit af"];
-      var writing = document.getElementById("reviews");
-      writing.innerHTML = personalReviews[1];
-  }
-}
