@@ -1,10 +1,9 @@
 function initialize() {
   // Dictionary of locations and names for ice cream places
   var locations = [
-    {x: 34.069378, y: -118.443281, name: "UCLA"},
-    {x: 34.076360, y: -118.354860, name: "Sweet Rose Creamery"}
+    {x: 34.069378, y: -118.443281, name: "UCLA", description: "math math math"},
+    {x: 34.076360, y: -118.354860, name: "Sweet Rose Creamery", description: "sweet sweet"}
     ];
-
   // Setting up the map
   var mapProp = {
     center: {lat: locations[0].x, lng: locations[0].y},
@@ -14,39 +13,41 @@ function initialize() {
     scrollWheel: false
   };
 
+/* attachInfoWindow() function binds InfoWindow to a Marker
+ * Creates InfoWindow instance if it does not exist already
+ * @param InfoWindow options to set content and other things
+ */
+ google.maps.Marker.prototype.attachInfoWindow = function (options){
+   var mapping= this.getMap();
+   mapping.infowindow = mapping.infowindow || new google.maps.InfoWindow();
+   google.maps.event.addListener(this, 'click', function () {
+     mapping.infowindow.setOptions(options);
+     mapping.infowindow.open(mapping, this);
+   });
+   mapping.infoWindowClickShutter = mapping.infoWindowClickShutter ||
+   google.maps.event.addListener(mapping, 'click', function () {
+     mapping.infowindow.close();
+   });
+ }
+
+ google.maps.Marker.prototype.attachReview = function(review) {
+   var mapping = this.getMap();
+  google.maps.event.addListener(this, 'click', function() {
+    var writing = document.getElementById("reviews");
+    writing.innerHTML = review;
+  });
+ }
+
   // Getting element in html to display the map
   var map = new google.maps.Map(document.getElementById("google-map"), mapProp);
-
-  /*
-  * Function to add markers
-  * index corresponds to the index in the locations dictionary
-  * infowindow displays name of the store when marker is clicked on
-  */
-  function addMarker(index) {
-    var marker = new google.maps.Marker({
-      position: {lat: locations[index].x, lng: locations[index].y},
+  var marker = [];
+  for (var i = 0; i < locations.length; i++) {
+      marker[i] = new google.maps.Marker({
+      position: {lat: locations[i].x, lng: locations[i].y},
       map: map
     });
-
-    var infowindow = new google.maps.InfoWindow();
-
-    google.maps.event.addListener(marker, 'click', function() {
-
-      infowindow.setContent(locations[index].name);
-      infowindow.open(map, marker);
-
-      var personalReviews = [ {description: "UCLA boelter", rating: "5"}, {description: "sweet sweet", rating: "4"}]
-      var writing = document.getElementById("reviews");
-      writing.innerHTML = personalReviews[index].description;
-      var stars = document.getElementById("ratings");
-      stars.innerHTML = personalReviews[index].rating;
-    })
-  }
-
-  // Adding in markers for each location in locations dictionary
-  for (var i = 0; i < locations.length; i++)
-  {
-    addMarker(i);
+    marker[i].attachInfoWindow({content: locations[i].name});
+    marker[i].attachReview(locations[i].description);
   }
 }
 
