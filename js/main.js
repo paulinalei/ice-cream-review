@@ -1,8 +1,8 @@
 function initialize() {
   // Dictionary of locations and names for ice cream places
   var locations = [
-    {x: 34.069378, y: -118.443281, name: "UCLA", description: "math math math"},
-    {x: 34.076360, y: -118.354860, name: "Sweet Rose Creamery", description: "sweet sweet"}
+    {x: 34.069378, y: -118.443281, name: "UCLA", rating: "5", description: "math math math"},
+    {x: 34.076360, y: -118.354860, name: "Sweet Rose Creamery", rating: "4", description: "sweet sweet"}
     ];
   // Setting up the map
   var mapProp = {
@@ -30,12 +30,26 @@ function initialize() {
    });
  }
 
+/* attachReview() function binds a review to a Marker
+ * @param review is the review from the locations dictionary
+ */
  google.maps.Marker.prototype.attachReview = function(review) {
    var mapping = this.getMap();
   google.maps.event.addListener(this, 'click', function() {
     var writing = document.getElementById("reviews");
     writing.innerHTML = review;
   });
+ }
+
+/* attachRating() function binds a rating to a Marker
+ * @param rating is the rating from the locations dictionary
+ */
+ google.maps.Marker.prototype.attachRating = function(star) {
+   var mapping = this.getMap();
+   google.maps.event.addListener(this, 'click', function () {
+     var stars = document.getElementById("ratings");
+     stars.innerHTML = star;
+   })
  }
 
   // Getting element in html to display the map
@@ -48,6 +62,7 @@ function initialize() {
     });
     marker[i].attachInfoWindow({content: locations[i].name});
     marker[i].attachReview(locations[i].description);
+    marker[i].attachRating(locations[i].rating);
   }
 }
 
