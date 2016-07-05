@@ -62,8 +62,9 @@ function initialize() {
     });
     marker[i].attachInfoWindow({content: locations[i].name});
     marker[i].attachReview(locations[i].description);
-    marker[i].attachRating(locations[i].rating);
+    marker[i].attachRating(locations[i].rating); // idk why the rating shows up as red
   }
+
 }
 
 // Loading the map
