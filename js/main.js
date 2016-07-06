@@ -4,6 +4,7 @@ function initialize() {
     {x: 34.069378, y: -118.443281, name: "UCLA", rating: "5", description: "math math math"},
     {x: 34.076360, y: -118.354860, name: "Sweet Rose Creamery", rating: "4", description: "sweet sweet"}
     ];
+    
   // Setting up the map
   var mapProp = {
     center: {lat: locations[0].x, lng: locations[0].y},
