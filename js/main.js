@@ -1,14 +1,17 @@
+var map;
+
+// Dictionary of locations and names for ice cream places
+var locations = [
+  {x: 34.069378, y: -118.443281, name: "UCLA", rating: "5", description: "math math math"},
+  {x: 34.076360, y: -118.354860, name: "Sweet Rose Creamery", rating: "4", description: "sweet sweet"}
+  ];
+
 function initialize() {
-  // Dictionary of locations and names for ice cream places
-  var locations = [
-    {x: 34.069378, y: -118.443281, name: "UCLA", rating: "5", description: "math math math"},
-    {x: 34.076360, y: -118.354860, name: "Sweet Rose Creamery", rating: "4", description: "sweet sweet"}
-    ];
-    
+
   // Setting up the map
   var mapProp = {
     center: {lat: locations[0].x, lng: locations[0].y},
-    zoom:10,
+    zoom: 15,
     mapTypeId:google.maps.MapTypeId.ROADMAP,
     streetViewControl: false, //no pegman for street view
     scrollWheel: false
@@ -54,7 +57,8 @@ function initialize() {
  }
 
   // Getting element in html to display the map
-  var map = new google.maps.Map(document.getElementById("google-map"), mapProp);
+  map = new google.maps.Map(document.getElementById("google-map"), mapProp);
+
   var marker = [];
   for (var i = 0; i < locations.length; i++) {
       marker[i] = new google.maps.Marker({
@@ -66,6 +70,12 @@ function initialize() {
     marker[i].attachRating(locations[i].rating); // idk why the rating shows up as red
   }
 
+}
+
+// TODO: figure out how to make it so that it can pan to any marker not just a fixed location
+function panToMarker(index) {
+  var position = new google.maps.LatLng(locations[index].x, locations[index].y);
+  map.panTo(position);
 }
 
 // Loading the map
