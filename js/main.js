@@ -34,6 +34,14 @@ function initialize() {
    });
  }
 
+ google.maps.Marker.prototype.attachName = function(name) {
+   var mapping = this.getMap();
+   google.maps.event.addListener(this, 'click', function() {
+     var storeFront = document.getElementById("store-names");
+     storeFront.innerHTML = name;
+   })
+ }
+
 /* attachReview() function binds a review to a Marker
  * @param review is the review from the locations dictionary
  */
@@ -66,17 +74,24 @@ function initialize() {
       map: map
     });
     marker[i].attachInfoWindow({content: locations[i].name});
+    marker[i].attachName(locations[i].name);
     marker[i].attachReview(locations[i].description);
     marker[i].attachRating(locations[i].rating); // idk why the rating shows up as red
   }
 
 }
 
-// TODO: figure out how to make it so that it can pan to any marker not just a fixed location
+// TODO: maybe make this more efficient, so don't have to add function to like every item
 function panToMarker(index) {
   var position = new google.maps.LatLng(locations[index].x, locations[index].y);
   map.panTo(position);
 }
+
+/*
+$("a").click(function() {
+  panToMarker();
+})
+*/
 
 // Loading the map
 google.maps.event.addDomListener(window, 'load', initialize);
