@@ -81,6 +81,7 @@ function initialize() {
     marker[i].attachReview(locations[i].description);
     marker[i].attachRating(locations[i].rating); // idk why the rating shows up as red
   }
+
 }
 
 // TODO: maybe make this more efficient, so don't have to add function to like every item
