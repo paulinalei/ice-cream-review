@@ -34,6 +34,9 @@ function initialize() {
    });
  }
 
+ /* attachName() function binds name to a Marker
+  * @param name is the name from locations dictionary
+  */
  google.maps.Marker.prototype.attachName = function(name) {
    var mapping = this.getMap();
    google.maps.event.addListener(this, 'click', function() {
@@ -78,7 +81,6 @@ function initialize() {
     marker[i].attachReview(locations[i].description);
     marker[i].attachRating(locations[i].rating); // idk why the rating shows up as red
   }
-
 }
 
 // TODO: maybe make this more efficient, so don't have to add function to like every item
@@ -86,12 +88,6 @@ function panToMarker(index) {
   var position = new google.maps.LatLng(locations[index].x, locations[index].y);
   map.panTo(position);
 }
-
-/*
-$("a").click(function() {
-  panToMarker();
-})
-*/
 
 // Loading the map
 google.maps.event.addDomListener(window, 'load', initialize);
