@@ -106,5 +106,6 @@ for (var i = 0; i < locations.length; i++) {
   storelist.appendChild(store);
   document.getElementById("store-list").appendChild(storelist);
 }
+
 // Loading the map
 google.maps.event.addDomListener(window, 'load', initialize);
