@@ -90,11 +90,21 @@ function panToMarker(index) {
   map.panTo(position);
 }
 
+/*
 var names = "";
 for (var i = 0; i < locations.length; i++) {
   names += "" + locations[i].name + "<br/>"
 }
+
 var list = document.getElementById("store-list");
 list.innerHTML = names;
+*/
+
+for (var i = 0; i < locations.length; i++) {
+  var storelist = document.createElement("a");
+  var store = document.createTextNode(locations[i].name);
+  storelist.appendChild(store);
+  document.getElementById("store-list").appendChild(storelist);
+}
 // Loading the map
 google.maps.event.addDomListener(window, 'load', initialize);
