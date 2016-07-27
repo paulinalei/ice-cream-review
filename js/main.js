@@ -90,5 +90,11 @@ function panToMarker(index) {
   map.panTo(position);
 }
 
+var names = "";
+for (var i = 0; i < locations.length; i++) {
+  names += "" + locations[i].name + "<br/>"
+}
+var list = document.getElementById("store-list");
+list.innerHTML = names;
 // Loading the map
 google.maps.event.addDomListener(window, 'load', initialize);
