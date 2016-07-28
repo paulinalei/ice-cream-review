@@ -1,5 +1,5 @@
 var map;
-
+var marker = [];
 // Dictionary of locations and names for ice cream places
 var locations = [
   {x: 34.069378, y: -118.443281, name: "UCLA", rating: "5", description: "math math math"},
@@ -70,7 +70,7 @@ function initialize() {
   // Getting element in html to display the map
   map = new google.maps.Map(document.getElementById("google-map"), mapProp);
 
-  var marker = [];
+//  var marker = [];
   for (var i = 0; i < locations.length; i++) {
       marker[i] = new google.maps.Marker({
       position: {lat: locations[i].x, lng: locations[i].y},
@@ -80,6 +80,17 @@ function initialize() {
     marker[i].attachName(locations[i].name);
     marker[i].attachReview(locations[i].description);
     marker[i].attachRating(locations[i].rating); // idk why the rating shows up as red
+
+
+      var storelist = document.createElement("a");
+      storelist.onclick = function(i) {
+        var position = marker[i].getPosition();
+        map.panTo(position);
+      }
+      var store = document.createTextNode(locations[i].name);
+      storelist.appendChild(store);
+      document.getElementById("store-list").appendChild(storelist);
+
   }
 
 }
@@ -99,13 +110,6 @@ for (var i = 0; i < locations.length; i++) {
 var list = document.getElementById("store-list");
 list.innerHTML = names;
 */
-
-for (var i = 0; i < locations.length; i++) {
-  var storelist = document.createElement("a");
-  var store = document.createTextNode(locations[i].name);
-  storelist.appendChild(store);
-  document.getElementById("store-list").appendChild(storelist);
-}
 
 // Loading the map
 google.maps.event.addDomListener(window, 'load', initialize);
