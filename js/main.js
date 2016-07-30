@@ -103,6 +103,9 @@ function changeSelection() {
 
   var stars = document.getElementById("ratings");
   stars.innerHTML = locations[selectedValue].rating;
+  (function openInfoWindow () {
+    google.maps.event.trigger(marker[selectedValue], 'click');
+  })();
 }
 // Loading the map
 google.maps.event.addDomListener(window, 'load', initialize);
