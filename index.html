@@ -14,21 +14,23 @@
       <p>By Paulina Lei</p>
       <p>Here is a map of my reviews and ratings for the various ice cream stores I've been to</p>
       <p>Ratings are out of five.</p>
-    </div>
 
-    <div class="store-list">
-      <select id="stores" onchange="changeSelection();">
-          <option value="0">UCLA</option>
-          <option value="1">Sweet Rose Creamery</option>
-      </select>
+      <div class="store-list">
+        <select id="stores" onchange="changeSelection();">
+            <option>Select a store</option>
+            <option value="0">UCLA</option>
+            <option value="1">Sweet Rose Creamery</option>
+        </select>
+      </div>
+
     </div>
 
     <div id="content">
       <h3>Reviews</h3>
-      <div id="store-names">Click on a marker and a name for the store will show up here.</div>
-      <div id="reviews">Click on a marker and a review for the store will show up here.</div>
+      <div id="store-names">Store</div>
+      <div id="reviews">Review</div>
       <h3>Rating</h3>
-      <div id="ratings">Click on a marker and a rating for the store will show up here.</div>
+      <div id="ratings">Rating</div>
     </div>
     <div id="google-map"></div>
   </div>
@@ -46,6 +48,5 @@ TO DO:
 -style the general content/infowindows
 -show rating for how much u like a place with stars/icons not numbers
 -write those reviews :3
--maybe link to websites of the stores?
--find a way so that when you click on the link, it displays the name, review, rating as well
+-make it so that if you click on a value in the dropdown menu, it shows the infowindow
 -->
