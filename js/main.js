@@ -11,7 +11,7 @@ function initialize() {
   // Setting up the map
   var mapProp = {
     center: {lat: locations[0].x, lng: locations[0].y},
-    zoom: 15,
+    zoom: 13,
     mapTypeId:google.maps.MapTypeId.ROADMAP,
     streetViewControl: false, //no pegman for street view
     scrollWheel: false
@@ -80,17 +80,6 @@ function initialize() {
     marker[i].attachName(locations[i].name);
     marker[i].attachReview(locations[i].description);
     marker[i].attachRating(locations[i].rating); // idk why the rating shows up as red
-
-
-      var storelist = document.createElement("a");
-      storelist.onclick = function(i) {
-        var position = marker[i].getPosition();
-        map.panTo(position);
-      }
-      var store = document.createTextNode(locations[i].name);
-      storelist.appendChild(store);
-      document.getElementById("store-list").appendChild(storelist);
-
   }
 
 }
@@ -101,15 +90,10 @@ function panToMarker(index) {
   map.panTo(position);
 }
 
-/*
-var names = "";
-for (var i = 0; i < locations.length; i++) {
-  names += "" + locations[i].name + "<br/>"
+function changeSelection() {
+  var selectBox = document.getElementById("store-names");
+  var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+  panToMarker(selectedValue);
 }
-
-var list = document.getElementById("store-list");
-list.innerHTML = names;
-*/
-
 // Loading the map
 google.maps.event.addDomListener(window, 'load', initialize);

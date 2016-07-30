@@ -9,17 +9,20 @@
 <body>
   <div class="container">
     <h1 class="headline">Ice Cream Review</h1>
-    <p>By Paulina Lei</p>
 
-    <p>Here is a map of my reviews and ratings for the various ice cream stores I've been to</p>
-    <p>Ratings are out of five.</p>
+    <div class="description">
+      <p>By Paulina Lei</p>
+      <p>Here is a map of my reviews and ratings for the various ice cream stores I've been to</p>
+      <p>Ratings are out of five.</p>
+    </div>
 
-    <ul>
-        <li href="#" onclick="panToMarker(0)">UCLA</li>
-        <li href="#" onclick="panToMarker(1)">Sweet Rose Creamery</li>
-    </ul>
+    <div class="store-list">
+      <select id="store-names" onchange="changeSelection();">
+          <option value="0">UCLA</option>
+          <option value="1">Sweet Rose Creamery</option>
+      </select>
+    </div>
 
-    <div id="store-list"></div>
     <div id="content">
       <h3>Reviews</h3>
       <div id="store-names">Click on a marker and a name for the store will show up here.</div>
