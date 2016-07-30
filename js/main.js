@@ -91,9 +91,18 @@ function panToMarker(index) {
 }
 
 function changeSelection() {
-  var selectBox = document.getElementById("store-names");
+  var selectBox = document.getElementById("stores");
   var selectedValue = selectBox.options[selectBox.selectedIndex].value;
   panToMarker(selectedValue);
+
+  var storeFront = document.getElementById("store-names");
+  storeFront.innerHTML = locations[selectedValue].name;
+
+  var writing = document.getElementById("reviews");
+  writing.innerHTML = locations[selectedValue].description;
+
+  var stars = document.getElementById("ratings");
+  stars.innerHTML = locations[selectedValue].rating;
 }
 // Loading the map
 google.maps.event.addDomListener(window, 'load', initialize);
