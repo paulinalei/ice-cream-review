@@ -90,6 +90,7 @@ function panToMarker(index) {
   map.panTo(position);
 }
 
+// Function to show name, review, and rating when an option from the select tags have been chosen
 function changeSelection() {
   var selectBox = document.getElementById("stores");
   var selectedValue = selectBox.options[selectBox.selectedIndex].value;
@@ -103,9 +104,30 @@ function changeSelection() {
 
   var stars = document.getElementById("ratings");
   stars.innerHTML = locations[selectedValue].rating;
-  (function openInfoWindow () {
+
+  (function openInfoWindow() {
     google.maps.event.trigger(marker[selectedValue], 'click');
   })();
 }
+
+// Function to display options in select tag in alphabetical order
+(function sortStores() {
+    var options = $('select.stores option');
+    var arr = options.map(function(_, o) {
+        return {
+            t: $(o).text(),
+            v: o.value
+        };
+    }).get();
+    arr.sort(function(o1, o2) {
+        return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0;
+    });
+    options.each(function(i, o) {
+        o.value = arr[i].v;
+        $(o).text(arr[i].t);
+    });
+})();
+
+
 // Loading the map
 google.maps.event.addDomListener(window, 'load', initialize);
