@@ -3,12 +3,12 @@ var marker = [];
 // Dictionary of locations and names for ice cream places
 var locations = [
   {x: 34.070052, y: -118.405832, name: "Amorino Gelato", rating: "4", description: "Experience here was wonderful. They have quick service and give you many flavors. They even make your gelato into a rose shape."},
-    {x: 34.076360, y: -118.354860, name: "Sweet Rose Creamery", rating: "4", description: "Sweet Rose has lots of very interesting flavors, such as basil ice cream. Their ice cream is extremely rich and creamy, but they are definitely on the pricier side."}
-  {x: 34.069378, y: -118.443281, name: "UCLA", rating: "5", description: "I go to school here."},
+  {x: 34.076360, y: -118.354860, name: "Sweet Rose Creamery", rating: "4", description: "Sweet Rose has lots of very interesting flavors, such as basil ice cream. Their ice cream is extremely rich and creamy, but they are definitely on the pricier side."},
+  {x: 34.069378, y: -118.443281, name: "UCLA", rating: "5", description: "I go to school here."}
 
   ];
 
-function initialize() {
+function initMap() {
 
   // Setting up the map
   var mapProp = {
