@@ -4,7 +4,7 @@ var marker = [];
 var locations = [
   {x: 34.070052, y: -118.405832, name: "Amorino Gelato", rating: "4", description: "Experience here was wonderful. They have quick service and give you many flavors. They even make your gelato into a rose shape."},
   {x: 34.023555, y: -118.394562, name: "Cold Stone Creamery", rating: "2", description: "Fun to watch them mix your ice cream, but quality of ice cream not that great. Also, felt very expensive"},
-  {x: 34.064145, y: -118.306198, name: "CottonHi", rating: "4", description: "Love the concert of ice cream with cotton candy. Would say that the cotton candy isnt the best and that it felt overpriced."},
+  {x: 34.064145, y: -118.306198, name: "CottonHi", rating: "4", description: "Love the concept of ice cream with cotton candy. Would say that the cotton candy isnt the best and that it felt overpriced."},
   {x: 37.447769, y: -122.159694, name: "CREAM", rating: "1", description: "Got an ice cream sandwich. Ice cream was hard. Cookies were hard. Overpriced."},
   {x: 34.063298, y: -118.399391, name: "Creamistry", rating: "3", description: "Nitrogen ice cream, but ice cream consistency can vary greatly. Really good flavors and customizing, but very expensive for a scoop."},
   {x: 34.419749, y: -119.698853, name: "McConnell's Fine Ice Creams", rating: "4", description: "Lots of unique flavors. Very creamy ice cream. Somewhat of a long line, but very worth."},
