@@ -16,13 +16,15 @@ var locations = [
 
   ];
 
+$(document).ready(function() {
+
 function initMap() {
 
   // Setting up the map
   var mapProp = {
     center: {lat: locations[0].x, lng: locations[0].y},
     zoom: 13,
-    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
     streetViewControl: false, //no pegman for street view
     scrollWheel: false
   };
@@ -91,10 +93,14 @@ function initMap() {
     marker[i].attachReview(locations[i].description);
     marker[i].attachRating(locations[i].rating); // idk why the rating shows up as red
   }
-
 }
 
-// TODO: maybe make this more efficient, so don't have to add function to like every item
+// Loading the map
+google.maps.event.addDomListener(window, 'load', initMap);
+
+});
+
+// Function that allows panning when marker or dropdown menu item is selected
 function panToMarker(index) {
   var position = new google.maps.LatLng(locations[index].x, locations[index].y);
   map.panTo(position);
@@ -137,7 +143,3 @@ function changeSelection() {
         $(o).text(arr[i].t);
     });
 })();
-
-
-// Loading the map
-google.maps.event.addDomListener(window, 'load', initMap);
