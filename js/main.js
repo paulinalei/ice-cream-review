@@ -3,6 +3,9 @@ var marker = [];
 // Dictionary of locations and names for ice cream places
 var locations = [
   {x: 34.070052, y: -118.405832, name: "Amorino Gelato", rating: "4", description: "Experience here was wonderful. They have quick service and give you many flavors. They even make your gelato into a rose shape."},
+  {x: 34.076231, y: -118.348461, name: "Milk", rating: "3", description: "Macaron ice cream sandwich is much bigger than most places, but would say their ice cream is average."},
+  {x: 34.055722, y: -118.442067, name: "Saffron & Rose Ice Cream", rating: "5", description: "Really great texture. The ice cream is Persian ice cream, so it is gooey. The flavors are wonderful, especially considering they are floral flavors. Definitely recommend."},
+  {x: 34.076059, y: -118.323389, name: "Salt & Straw", rating: "3", description: "Had very interesting flavors. Came when they had their fermentation series. Would recommend for those seeking exciting flavors, but quality wise, it was only average."},
   {x: 34.076360, y: -118.354860, name: "Sweet Rose Creamery", rating: "4", description: "Sweet Rose has lots of very interesting flavors, such as basil ice cream. Their ice cream is extremely rich and creamy, but they are definitely on the pricier side."},
   {x: 34.069378, y: -118.443281, name: "UCLA", rating: "5", description: "I go to school here."}
 
