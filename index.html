@@ -9,11 +9,12 @@
 </head>
 
 <body>
-  <h1 class="headline">Ice Cream Review</h1>
 <div class="container">
   <div class="row">
-    <div class="col-xs-2 no-float">
+
+    <div class="col-xs-2">
       <div class="description">
+        <h1 class="headline">Ice Cream Review</h1>
         <p>Here is a map of my reviews and ratings for the various ice cream stores I've been to.</p>
         <p>Ratings are out of five.</p>
         <p>Select a store:</p>
@@ -35,8 +36,18 @@
         </div>
       </div>
     </div>
-    
-    <div class="col-xs-10 no-float">
+
+    <div class="col-xs-10" id="google-map"></div>
+
+    <div id="content">
+      <h3>Reviews</h3>
+      <div id="store-names">Store</div>
+      <div id="reviews">Review</div>
+      <h3>Rating</h3>
+      <div id="ratings">Rating</div>
+    </div>
+
+    <!--<div class="col-xs-10 no-float">
     <div id="content">
       <h3>Reviews</h3>
       <div id="store-names">Store</div>
@@ -45,14 +56,17 @@
       <div id="ratings">Rating</div>
     </div>
     <div id="google-map"></div>
-    </div>
+  </div> -->
   </div>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvxPck-sjntRhAVx1az7VqbmwhdmSR5pY
+&callback=initMap"
+ type="text/javascript"></script>
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+
 </body>
 </html>
 
