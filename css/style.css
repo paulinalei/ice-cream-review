@@ -58,14 +58,8 @@ body {
 
 .stores {
   padding: 5px;
-  margin: 10px;
+  margin: auto;
 }
-
-/*
-#google-map {
-  height: 100%;
-  width: 100%;
-}*/
 
 #content {
   z-index: 100;
